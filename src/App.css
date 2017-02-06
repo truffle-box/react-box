@@ -10,6 +10,7 @@ h1, h2, h3 {
 }
 
 .container {
+  box-sizing: border-box;
   width: 100vw;
   padding: 45px 20px;
 }
