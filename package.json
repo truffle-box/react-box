@@ -1,5 +1,5 @@
 {
-  "name": "redux-metamask-auth",
+  "name": "truffle-box-react",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -49,6 +49,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
