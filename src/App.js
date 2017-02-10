@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SimpleStorageContract from '../build/contracts/SimpleStorage.json';
-import Web3 from 'web3';
+import SimpleStorageContract from '../build/contracts/SimpleStorage.json'
+import Web3 from 'web3'
 
 import './css/oswald.css'
 import './css/open-sans.css'
