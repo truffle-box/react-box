@@ -12,7 +12,6 @@ class App extends Component {
     super(props)
 
     this.state = {
-      provider: null,
       storageValue: 0,
       web3: null
     }
@@ -25,7 +24,6 @@ class App extends Component {
     getWeb3
     .then(results => {
       this.setState({
-        provider: results.provider,
         web3: results.web3
       })
 
@@ -33,7 +31,7 @@ class App extends Component {
       this.instantiateContract()
     })
     .catch(() => {
-      console.log('Error')
+      console.log('Error finding web3.')
     })
   }
 
@@ -47,7 +45,7 @@ class App extends Component {
 
     const contract = require('truffle-contract')
     const simpleStorage = contract(SimpleStorageContract)
-    simpleStorage.setProvider(this.state.provider)
+    simpleStorage.setProvider(this.state.web3.currentProvider)
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
@@ -83,7 +81,7 @@ class App extends Component {
               <p>Your Truffle Box is installed and ready.</p>
               <h2>Smart Contract Example</h2>
               <p>If your contracts compiled and migrated successfully, below will show a stored value of 5 (by default).</p>
-              <p>Try changing the value stored on <strong>line 61</strong> of App.js.</p>
+              <p>Try changing the value stored on <strong>line 59</strong> of App.js.</p>
               <p>The stored value is: {this.state.storageValue}</p>
             </div>
           </div>
