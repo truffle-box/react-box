@@ -10,23 +10,28 @@ This box comes with everything you need to start using smart contracts from a re
     npm install -g ethereumjs-testrpc
     ```
 
-2. Downlaod box using Truffle.
+2. Clone or download the truffle box of your choice.
     ```javascript
-    truffle unbox truffle-box-react
+    git clone [repo]
     ```
 
-3. Compile and migrate the contracts.
+3. Install the node dependencies.
+    ```javascript
+    npm install
+    ```
+
+4. Compile and migrate the contracts.
     ```javascript
     truffle compile
     truffle migrate
     ```
 
-4. Run the webpack server for front-end hot reloading. For now, smart contract changes must be manually recompiled and migrated.
+5. Run the webpack server for front-end hot reloading. For now, smart contract changes must be manually recompiled and migrated.
     ```javascript
     npm run start
     ```
 
-5. Jest is included for testing React components and Truffle's own suite is incldued for smart contracts. Be sure you've compile your contracts before running jest, or you'll receive some file not found errors.
+6. Jest is included for testing React components and Truffle's own suite is incldued for smart contracts. Be sure you've compile your contracts before running jest, or you'll receive some file not found errors.
     ```javascript
     // Runs Jest for component tests.
     npm run test
@@ -35,7 +40,7 @@ This box comes with everything you need to start using smart contracts from a re
     truffle test
     ```
 
-6. To build the application for production, use the build command. A production build will be in the build_webpack folder.
+7. To build the application for production, use the build command. A production build will be in the build_webpack folder.
     ```javascript
     npm run build
     ```
