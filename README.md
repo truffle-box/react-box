@@ -12,7 +12,7 @@ This box comes with everything you need to start using smart contracts from a re
 
 2. Downlaod box using Truffle.
     ```javascript
-    truffle unbox truffle-box-react
+    truffle unbox react
     ```
 
 3. Compile and migrate the contracts.
