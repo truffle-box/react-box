@@ -10,7 +10,7 @@ This box comes with everything you need to start using smart contracts from a re
     npm install -g ethereumjs-testrpc
     ```
 
-2. Downlaod box.
+2. Download box.
     ```javascript
     truffle unbox react
     ```
