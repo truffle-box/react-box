@@ -1,4 +1,4 @@
-# Truffle Box (React)
+# React Truffle Box
 
 This box comes with everything you need to start using smart contracts from a react app. This is as barebones as it gets, so nothing stands in your way.
 
