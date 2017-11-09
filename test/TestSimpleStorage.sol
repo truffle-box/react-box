@@ -6,7 +6,7 @@ import "../contracts/SimpleStorage.sol";
 
 contract TestSimpleStorage {
 
-  function testItStoresAValue() {
+  function testItStoresAValue() public {
     SimpleStorage simpleStorage = SimpleStorage(DeployedAddresses.SimpleStorage());
 
     simpleStorage.set(89);
