@@ -30,7 +30,7 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
-    "jest": "18.1.0",
+    "jest": "^21.2.1",
     "json-loader": "0.5.4",
     "object-assign": "4.1.0",
     "path-exists": "2.1.0",
@@ -40,6 +40,7 @@
     "recursive-readdir": "2.1.0",
     "strip-ansi": "3.0.1",
     "style-loader": "0.13.1",
+    "truffle": "^4.0.1",
     "truffle-contract": "^1.1.8",
     "truffle-solidity-loader": "0.0.8",
     "url-loader": "0.5.7",
@@ -59,6 +60,8 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],

@@ -1,0 +1,13 @@
+language: node_js
+node_js: lts/*
+cache:
+  directories:
+    - "node_modules"
+install:
+  - npm i --save-dev
+  - npm i -g codecov
+  - truffle compile
+script:
+  - truffle test
+  - npm test --watchAll
+  - codecov
