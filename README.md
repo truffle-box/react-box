@@ -9,8 +9,10 @@ This box comes with everything you need to start using smart contracts from a re
     npm install -g truffle
     ```
 
-2. Download the box. This also takes care of installing the necessary dependencies.
+2. Create a new directory for your project and download the box. This also takes care of installing the necessary dependencies.
     ```javascript
+    mkdir my_project
+    cd my_project
     truffle unbox react
     ```
 
