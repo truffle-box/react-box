@@ -25,7 +25,7 @@ This box comes with everything you need to start using smart contracts from a re
     migrate
     ```
 
-5. Run the webpack server for front-end hot reloading (outside the development console). Smart contract changes must be manually recompiled and migrated.
+5. Keep the develop console running and open a new terminal tab. Run the webpack server there for front-end hot reloading.
     ```javascript
     // Serves the front-end on http://localhost:3000
     npm run start
@@ -53,7 +53,7 @@ This box comes with everything you need to start using smart contracts from a re
 
 ## FAQ
 
-* __How do I use this with the EthereumJS TestRPC?__
+* __How do I use this with other networks (like Ropsten or Rinkleby)?__
 
     It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 24 of `src/utils/getWeb3.js`.
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SimpleStorageContract from '../build/contracts/SimpleStorage.json'
-import getWeb3 from './utils/getWeb3'
+import getLocalWeb3 from './utils/getLocalWeb3'
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -20,8 +20,7 @@ class App extends Component {
   componentWillMount() {
     // Get network provider and web3 instance.
     // See utils/getWeb3 for more info.
-
-    getWeb3
+    getLocalWeb3
     .then(results => {
       this.setState({
         web3: results.web3
@@ -41,6 +40,11 @@ class App extends Component {
      *
      * Normally these functions would be called in the context of a
      * state management library, but for convenience I've placed them here.
+     *
+     * Important: this method runs when the component mounts and
+     * immediately executes a transaction (saving a value) so you can verify
+     * the react-box is working and your local environment is set up correctly.
+     * In a real Dapp, you'd want your UI to explicitly ask the user to set the value.
      */
 
     const contract = require('truffle-contract')
@@ -52,6 +56,11 @@ class App extends Component {
 
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
+      if (error !== null) {
+        var message = "Uh oh, something's not right. (Keep `truffle develop` running as you start the server)"
+        return this.setState({ storageValue: message })
+      }
+
       simpleStorage.deployed().then((instance) => {
         simpleStorageInstance = instance
 
