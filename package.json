@@ -88,6 +88,9 @@
       "json",
       "web.jsx",
       "jsx"
+    ],
+    "testPathIgnorePatterns": [
+      "scripts"
     ]
   },
   "babel": {
