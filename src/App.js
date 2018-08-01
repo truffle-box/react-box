@@ -23,19 +23,18 @@ class App extends Component {
 
     getWeb3
     .then(results => {
-      this.setState({
-        web3: results.web3
-      })
-
+      const { web3 } = results;
       // Instantiate contract once web3 provided.
-      this.instantiateContract()
+      this.instantiateContract(web3)
+
+      this.setState({ web3 })
     })
     .catch(() => {
       console.log('Error finding web3.')
     })
   }
 
-  instantiateContract() {
+  instantiateContract(web3) {
     /*
      * SMART CONTRACT EXAMPLE
      *
@@ -45,13 +44,13 @@ class App extends Component {
 
     const contract = require('truffle-contract')
     const simpleStorage = contract(SimpleStorageContract)
-    simpleStorage.setProvider(this.state.web3.currentProvider)
+    simpleStorage.setProvider(web3.currentProvider)
 
     // Declaring this for later so we can chain functions on SimpleStorage.
     var simpleStorageInstance
 
     // Get accounts.
-    this.state.web3.eth.getAccounts((error, accounts) => {
+    web3.eth.getAccounts((error, accounts) => {
       simpleStorage.deployed().then((instance) => {
         simpleStorageInstance = instance
 
