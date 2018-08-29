@@ -1,17 +1,14 @@
 {
-  "ignore": [
-    "README.md",
-    ".gitignore"
-  ],
+  "ignore": ["README.md", ".gitignore", "box-img-lg.png", "box-img-sm.png"],
   "commands": {
     "Compile": "truffle compile",
     "Migrate": "truffle migrate",
     "Test contracts": "truffle test",
-    "Test dapp": "npm test",
-    "Run dev server": "npm run start",
-    "Build for production": "npm run build"
+    "Test dapp": "cd client && npm test",
+    "Run dev server": "cd client && npm run start",
+    "Build for production": "cd client && npm run build"
   },
   "hooks": {
-    "post-unpack": "npm install"
+    "post-unpack": "cd client && npm install && npm run link-contracts"
   }
 }
