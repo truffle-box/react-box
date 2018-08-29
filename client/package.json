@@ -16,7 +16,7 @@
     "eject": "react-scripts eject",
     "link-contracts": "run-script-os",
     "link-contracts:linux:darwin": "cd src && ln -s ../../build/contracts contracts",
-    "link-contracts:win32": "cd src && mklink \\D C:\\..\\build\\contracts contracts"
+    "link-contracts:win32": "cd src && mklink \\D contracts ..\\..\\build\\contracts"
   },
   "devDependencies": {
     "run-script-os": "^1.0.3"
