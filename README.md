@@ -25,7 +25,7 @@ This box comes with everything you need to start using smart contracts from a re
     migrate
     ```
 
-5. Run the webpack server for front-end hot reloading (outside the development console). Smart contract changes must be manually recompiled and migrated.
+5. Run the webpack server for front-end hot reloading (outside the development console and from the `client` directory). Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // Serves the front-end on http://localhost:3000
     npm run start
@@ -59,7 +59,7 @@ This box comes with everything you need to start using smart contracts from a re
 
 * __Why is there both a truffle.js file and a truffle-config.js file?__
 
-    `truffle-config.js` is a copy of `truffle.js` for compatibility with Windows development environments. Feel free to it if it's irrelevant to your platform.
+    `truffle-config.js` is a copy of `truffle.js` for compatibility with Windows development environments. Feel free to delete it if it's irrelevant to your platform.
 
 * __Where is my production build?__
 
