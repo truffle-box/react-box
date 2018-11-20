@@ -9,6 +9,6 @@
     "Build for production": "cd client && npm run build"
   },
   "hooks": {
-    "post-unpack": "cd client && npm install && npm run link-contracts"
+    "post-unpack": "cd client && npm install"
   }
 }
