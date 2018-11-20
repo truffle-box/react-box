@@ -60,7 +60,7 @@ class App extends Component {
           a stored value of 5 (by default).
         </p>
         <p>
-          Try changing the value stored on <strong>line 37</strong> of App.js.
+          Try changing the value stored on <strong>line 40</strong> of App.js.
         </p>
         <div>The stored value is: {this.state.storageValue}</div>
       </div>
