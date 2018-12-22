@@ -4,13 +4,16 @@ This box comes with everything you need to start using smart contracts from a re
 
 ## Installation
 
-1. Install Truffle globally.
+First ensure you are in a new and empty directory.
+
+1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies. A Create-React-App is generated in the `client` directory.
+   ```js
+   npx truffle unbox react
+   ```
+
+2. Alternatively, you can install Truffle globally and run the `unbox` command.
     ```javascript
     npm install -g truffle
-    ```
-
-2. Download the box. This also takes care of installing the necessary dependencies.
-    ```javascript
     truffle unbox react
     ```
 
@@ -25,45 +28,43 @@ This box comes with everything you need to start using smart contracts from a re
     migrate
     ```
 
-5. Run the webpack server for front-end hot reloading (outside the development console). Smart contract changes must be manually recompiled and migrated.
+5. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
     ```javascript
-    // Serves the front-end on http://localhost:3000
+    // in another terminal (i.e. not in the truffle develop prompt)
+    cd client
     npm run start
     ```
 
 6. Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the development console.
     ```javascript
-    // If inside the development console.
+    // inside the development console.
     test
 
-    // If outside the development console..
+    // outside the development console..
     truffle test
     ```
 
 7. Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
     ```javascript
-    // Run Jest outside of the development console for front-end component tests.
+    // ensure you are inside the client directory when running this
     npm run test
     ```
 
-8. To build the application for production, use the build command. A production build will be in the build_webpack folder.
+8. To build the application for production, use the build script. A production build will be in the `client/build` folder.
     ```javascript
+    // ensure you are inside the client directory when running this
     npm run build
     ```
 
 ## FAQ
 
-* __How do I use this with the EthereumJS TestRPC?__
+* __How do I use this with the Ganache-CLI?__
 
-    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 24 of `src/utils/getWeb3.js`.
-
-* __Why is there both a truffle.js file and a truffle-config.js file?__
-
-    `truffle-config.js` is a copy of `truffle.js` for compatibility with Windows development environments. Feel free to it if it's irrelevant to your platform.
+    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 29 of `client/src/utils/getWeb3.js`.
 
 * __Where is my production build?__
 
-    The production build will be in the build_webpack folder. This is because Truffle outputs contract compilations to the build folder.
+    The production build will be in the `client/build` folder after running `npm run build` in the `client` folder.
 
 * __Where can I find more documentation?__
 
