@@ -6,8 +6,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
-    "truffle-contract": "^4.0.0-beta.1",
-    "web3": "^1.0.0-beta.36"
+    "web3": "^1.0.0-beta.37"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./utils/getWeb3";
-import truffleContract from "truffle-contract";
 
 import "./App.css";
 
@@ -17,9 +16,12 @@ class App extends Component {
       const accounts = await web3.eth.getAccounts();
 
       // Get the contract instance.
-      const Contract = truffleContract(SimpleStorageContract);
-      Contract.setProvider(web3.currentProvider);
-      const instance = await Contract.deployed();
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = SimpleStorageContract.networks[networkId];
+      const instance = new web3.eth.Contract(
+        SimpleStorageContract.abi,
+        deployedNetwork && deployedNetwork.address,
+      );
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
@@ -27,9 +29,9 @@ class App extends Component {
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`
+        `Failed to load web3, accounts, or contract. Check console for details.`,
       );
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -37,13 +39,13 @@ class App extends Component {
     const { accounts, contract } = this.state;
 
     // Stores a given value, 5 by default.
-    await contract.set(5, { from: accounts[0] });
+    await contract.methods.set(5).send({ from: accounts[0] });
 
     // Get the value from the contract to prove it worked.
-    const response = await contract.get();
+    const response = await contract.methods.get().call();
 
     // Update state with the result.
-    this.setState({ storageValue: response.toNumber() });
+    this.setState({ storageValue: response });
   };
 
   render() {
