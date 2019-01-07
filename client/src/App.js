@@ -5,7 +5,7 @@ import getWeb3 from "./utils/getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = { storageValue: "'not retrieved yet'", web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
     try {

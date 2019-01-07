@@ -60,7 +60,7 @@ First ensure you are in a new and empty directory.
 
 * __How do I use this with the Ganache-CLI?__
 
-    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 29 of `client/src/utils/getWeb3.js`.
+    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 26 of `client/src/utils/getWeb3.js`.
 
 * __Where is my production build?__
 
