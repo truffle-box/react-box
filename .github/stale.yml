@@ -16,5 +16,5 @@ markComment: >
 # Comment to post when closing a stale issue. Set to `false` to disable
 closeComment: >
   This issue has been closed, but can be re-opened if further comments
-  indicate that the problem persists. Feel free to tag maintainers if no there
+  indicate that the problem persists. Feel free to tag maintainers if there
   is no reply to further comments.
