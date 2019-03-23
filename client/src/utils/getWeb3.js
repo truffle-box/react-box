@@ -17,9 +17,10 @@ const getWeb3 = () =>
         }
       }
       // Legacy dapp browsers...
-      else if (window.web3) {
+      else if (Web3.givenProvider) {
         // Use Mist/MetaMask's provider.
-        const web3 = window.web3;
+        const provider = Web3.givenProvider;
+        const web3 = new Web3(provider);
         console.log("Injected web3 detected.");
         resolve(web3);
       }
