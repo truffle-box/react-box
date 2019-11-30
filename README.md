@@ -34,6 +34,7 @@ First ensure you are in a new and empty directory.
     cd client
     npm run start
     ```
+Change the network to localhost in you plugin extension if you get (Error): This contract object doesn't have address set yet.
 
 6. Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the development console.
     ```javascript
