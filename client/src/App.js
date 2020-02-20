@@ -30,9 +30,7 @@ function App(){
           
           // Set web3, accounts, and contract to the state, and then proceed with an
           // example of interacting with the contract's methods.
-          modifyState(state.web3 = web3);
-          modifyState(state.accounts = accounts);
-          modifyState(state.contract=instance);
+          modifyState({...state,web3,accounts,contract:instance});
           resolve("all set");
           
         }).catch(err => reject(err)); // catch any error with accounts and getId
