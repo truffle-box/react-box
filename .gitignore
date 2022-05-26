@@ -12,6 +12,9 @@ client/*/src/contracts
 # Testing
 coverage
 
+# Editor
+.vscode
+
 # Misc.
 .DS_Store
 .env.local
