@@ -12,7 +12,8 @@ const initialState = {
   contract: null
 };
 
-const reducer = (state, { type, data }) => {
+const reducer = (state, action) => {
+  const { type, data } = action;
   switch (type) {
     case actions.setWeb3:
       return { ...state, web3: data };
