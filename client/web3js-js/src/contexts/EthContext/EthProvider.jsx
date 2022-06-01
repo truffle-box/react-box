@@ -1,38 +1,37 @@
-import { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import Web3 from "web3";
 import EthContext from "./EthContext";
 import { reducer, actions, initialState } from "./state";
-import SimpleStorage from "../../contracts/SimpleStorage.json";
 
 function EthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const ops = {
-    initWeb3: () => {
-      const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
-      dispatch({ type: actions.setWeb3, data: web3 });
-    },
-    refreshAccounts: async () => {
-      const accounts = await state.web3.eth.requestAccounts();
-      dispatch({ type: actions.setAccounts, data: accounts });
-    },
-    refreshNetworkID: async () => {
-      const networkID = await state.web3.eth.net.getId();
-      dispatch({ type: actions.setNetworkID, data: networkID });
-    },
-    refreshContract: () => {
-      const { abi } = SimpleStorage;
-      const address = SimpleStorage.networks[state.networkID].address;
-      const contract = new state.web3.eth.Contract(abi, address);
-      dispatch({ type: actions.setContract, data: contract });
-    }
-  };
+  useEffect(() => {
+    const tryInit = async () => {
+      try {
+        const artifact = require("../../contracts/SimpleStorage.json");
+        const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+        const accounts = await web3.eth.requestAccounts();
+        const networkID = await web3.eth.net.getId();
+        const { abi } = artifact;
+        const address = artifact.networks[networkID].address;
+        const contract = new web3.eth.Contract(abi, address);
+        dispatch({
+          type: actions.init,
+          data: { artifact, web3, accounts, networkID, contract }
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    tryInit();
+  }, []);
 
   return (
     <EthContext.Provider value={{
       state,
-      dispatch,
-      ...ops
+      dispatch
     }}>
       {children}
     </EthContext.Provider>
