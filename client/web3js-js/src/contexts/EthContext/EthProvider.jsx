@@ -46,6 +46,11 @@ function EthProvider({ children }) {
     };
     window.ethereum.on("chainChanged", handleChange);
     window.ethereum.on("accountsChanged", handleChange);
+
+    return () => {
+      window.ethereum.removeListener("chainChanged", handleChange);
+      window.ethereum.removeListener("accountsChanged", handleChange);
+    };
   }, [init, state.artifact]);
 
   return (
