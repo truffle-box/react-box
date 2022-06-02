@@ -5,10 +5,11 @@ import Cta from "./Cta";
 import Contract from "./Contract";
 import ContractBtns from "./ContractBtns";
 import Desc from "./Desc";
-import Notice from "./Notice";
+import NoticeNoArtifact from "./NoticeNoArtifact";
+import NoticeWrongNetwork from "./NoticeWrongNetwork";
 
 function Demo() {
-  const { state: { contract } } = useEth();
+  const { state } = useEth();
   const [value, setValue] = useState("?");
 
   const demo =
@@ -25,9 +26,9 @@ function Demo() {
     <div className="demo">
       <Title />
       {
-        !contract ?
-          <Notice /> :
-          demo
+        !state.artifact ? <NoticeNoArtifact /> :
+          !state.contract ? <NoticeWrongNetwork /> :
+            demo
       }
     </div>
   );

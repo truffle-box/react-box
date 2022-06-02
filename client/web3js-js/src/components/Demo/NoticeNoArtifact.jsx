@@ -1,4 +1,4 @@
-function Notice() {
+function NoticeNoArtifact() {
   return (
     <p>
       ⚠️ Cannot find <span className="code">SimpleStorage</span> contract artifact.
@@ -7,4 +7,4 @@ function Notice() {
   );
 }
 
-export default Notice;
+export default NoticeNoArtifact;
