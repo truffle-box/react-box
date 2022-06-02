@@ -8,7 +8,6 @@ function EthProvider({ children }) {
 
   const init = useCallback(
     async artifact => {
-      artifact = artifact || state.artifact;
       if (artifact) {
         const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
         const accounts = await web3.eth.requestAccounts();
@@ -26,7 +25,7 @@ function EthProvider({ children }) {
           data: { artifact, web3, accounts, networkID, contract }
         });
       }
-    }, [state.artifact]);
+    }, []);
 
   useEffect(() => {
     const tryInit = async () => {
@@ -42,9 +41,12 @@ function EthProvider({ children }) {
   }, [init]);
 
   useEffect(() => {
-    window.ethereum.on("chainChanged", init);
-    window.ethereum.on("accountsChanged", init);
-  }, [init]);
+    const handleChange = () => {
+      init(state.artifact);
+    };
+    window.ethereum.on("chainChanged", handleChange);
+    window.ethereum.on("accountsChanged", handleChange);
+  }, [init, state.artifact]);
 
   return (
     <EthContext.Provider value={{
