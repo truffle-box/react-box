@@ -41,15 +41,14 @@ function EthProvider({ children }) {
   }, [init]);
 
   useEffect(() => {
+    const events = ["chainChanged", "accountsChanged"];
     const handleChange = () => {
       init(state.artifact);
     };
-    window.ethereum.on("chainChanged", handleChange);
-    window.ethereum.on("accountsChanged", handleChange);
 
+    events.forEach(e => window.ethereum.on(e, handleChange));
     return () => {
-      window.ethereum.removeListener("chainChanged", handleChange);
-      window.ethereum.removeListener("accountsChanged", handleChange);
+      events.forEach(e => window.ethereum.removeListener(e, handleChange));
     };
   }, [init, state.artifact]);
 
