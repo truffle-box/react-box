@@ -26,6 +26,7 @@ function Setup() {
           contracts to Ganache.
         </p>
         <code>
+          {`$ cd truffle\n`}
           {`$ truffle migrate --network development\n`}
           <span className="dim-color">
             # The `development` network points to Ganache, it's configured in
