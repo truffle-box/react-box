@@ -1,12 +1,16 @@
 {
-  "ignore": ["README.md", ".gitignore", "box-img-lg.png", "box-img-sm.png", ".github"],
+  "ignore": [
+    ".gitignore",
+    ".github",
+    ".prettierrc.json"
+  ],
   "commands": {
-    "Compile": "truffle compile",
-    "Migrate": "truffle migrate",
-    "Test contracts": "truffle test",
-    "Test dapp": "cd client && npm test",
-    "Run dev server": "cd client && npm run start",
-    "Build for production": "cd client && npm run build"
+    "Contracts: Compile": "cd truffle && truffle compile",
+    "Contracts: Test": "cd truffle && truffle test",
+    "Contracts: Migrate": "cd truffle && truffle migrate",
+    "Dapp: Run dev server": "cd client && npm start",
+    "Dapp: Test": "cd client && npm test",
+    "Dapp: Build for production": "cd client && npm run build"
   },
   "hooks": {
     "post-unpack": "cd client && npm ci"
