@@ -9,6 +9,7 @@ node_modules
 build
 client/src/contracts
 client/*/src/contracts
+.env
 
 # Testing
 coverage
