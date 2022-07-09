@@ -11,5 +11,5 @@
     "test": "truffle test"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
