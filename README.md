@@ -24,7 +24,6 @@ Start the react dev server.
 ```sh
 $ cd client
 $ npm start
-  Starting the development server...
 ```
 
 From there, follow the instructions on the hosted React app. It will walk you through using Truffle and Ganache to deploy the `SimpleStorage` contract, making calls to it, and sending transactions to change the contract's state.
@@ -37,4 +36,4 @@ From there, follow the instructions on the hosted React app. It will walk you th
 
 - __Where can I find more resources?__
 
-  This Box is a sweet combo of [Truffle](https://trufflesuite.com) and [Create React App](https://create-react-app.dev). Either one would be a great place to start!
+  This Box is a sweet combo of [Truffle](https://trufflesuite.com) and [Webpack](https://webpack.js.org). Either one would be a great place to start!
